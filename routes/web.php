@@ -3,6 +3,7 @@
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
@@ -26,6 +27,8 @@ Route::get('/shop', ShopComponent::class);
 Route::get('/cart', CartComponent::class);
 
 Route::get('/checkout', CheckoutComponent::class);
+
+Route::get('/product/{slug}', DetailComponent::class)->name('product.detail');
 
 // For the User routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
