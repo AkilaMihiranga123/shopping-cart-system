@@ -1,4 +1,4 @@
-<div id="main" class="main-site left-sidebar">
+<main id="main" class="main-site left-sidebar">
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
@@ -242,4 +242,4 @@
             </div><!--end sitebar-->
         </div><!--end row-->
     </div><!--end container-->
-</div>
+</main>

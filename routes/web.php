@@ -15,6 +15,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,8 @@ Route::get('/product/{slug}', DetailComponent::class)->name('product.detail');
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
+
+Route::get('/wishlist', WishlistComponent::class)->name('product.wishlist');
 
 // For the User routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
