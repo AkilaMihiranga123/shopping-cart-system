@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
 
@@ -60,8 +61,38 @@ class CartComponent extends Component
         session()->flash('s_success_message', 'Item has been removed from save for later');
     }
 
+    public function checkout()
+    {
+        if (Auth::check())
+        {
+            return redirect()->route('checkout');
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+
+    public function setAmountForCheckout()
+    {
+        if (session()->has('coupon'))
+        {
+            //TODO: Coupon Discount
+        }
+        else
+        {
+            session()->put('checkout', [
+                'discount' => 0,
+                'subtotal' => Cart::instance('cart')->subtotal(),
+                'tax' => Cart::instance('cart')->tax(),
+                'total' => Cart::instance('cart')->total()
+            ]);
+        }
+    }
+
     public function render()
     {
+        $this->setAmountForCheckout();
         return view('livewire.cart-component')->layout('layouts.base');
     }
 }
