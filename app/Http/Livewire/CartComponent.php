@@ -91,7 +91,12 @@ class CartComponent extends Component
 
         if (session()->has('coupon'))
         {
-            //TODO: Coupon Discount
+            session()->put('checkout', [
+                'discount' => $this->discount,
+                'subtotal' => $this->subtotalAfterDiscount,
+                'tax' => $this->taxAfterDiscount,
+                'total' => $this->totalAfterDiscount
+            ]);
         }
         else
         {
