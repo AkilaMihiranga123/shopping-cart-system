@@ -23,6 +23,7 @@ use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserEditProfileComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\User\UserProfileComponent;
@@ -67,6 +68,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/user/review/{order_item_id}', UserReviewComponent::class)->name('user.review');
 
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
+    Route::get('/user/profile/edit', UserEditProfileComponent::class)->name('user.editprofile');
 });
 
 // For the Admin routes
